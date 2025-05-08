@@ -6,6 +6,9 @@ import java.util.List;
 
 public class GestionClientesTest {
 
+    /**
+     * Testeamos el constructor de la clase GestionClientes.
+     */
     @Test
     public void testAgregarCliente() {
         GestionClientes gestion = new GestionClientes();
@@ -17,6 +20,9 @@ public class GestionClientesTest {
         assertEquals(cliente, clientes.get(0));
     }
 
+    /**
+     * Testeamos el método eliminarCliente de la clase GestionClientes.
+     */
     @Test
     public void testEliminarCliente() {
         GestionClientes gestion = new GestionClientes();
@@ -27,6 +33,9 @@ public class GestionClientesTest {
         assertTrue(gestion.obtenerTodosLosClientes().isEmpty());
     }
 
+    /**
+     * Testeamos el método modificarCliente de la clase GestionClientes.
+     */
     @Test
     public void testBuscarClientePorId() {
         GestionClientes gestion = new GestionClientes();

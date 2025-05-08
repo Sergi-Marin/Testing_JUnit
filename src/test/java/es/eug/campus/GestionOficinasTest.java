@@ -7,11 +7,17 @@ import org.junit.jupiter.api.*;
 public class GestionOficinasTest {
     private GestionOficinas gestionOficinas;
 
+    /**
+     * Testeamos el constructor de la clase GestionOficinas.
+     */
     @BeforeEach
     void setup() {
         gestionOficinas = new GestionOficinas();
     }
 
+    /**
+     * Testeamos el método add de la clase GestionOficinas.
+     */
     @Test
     void testAddOficina() {
         Oficina oficina = new Oficina(1, "Madrid", "Calle Mayor", "123456789");
@@ -19,6 +25,9 @@ public class GestionOficinasTest {
         assertFalse(gestionOficinas.add(oficina)); // No se puede añadir duplicada
     }
 
+    /**
+     * Testeamos el método getById de la clase GestionOficinas.
+     */
     @Test
     void testGetById() {
         Oficina oficina = new Oficina(1, "Madrid", "Calle Mayor", "123456789");
@@ -27,6 +36,9 @@ public class GestionOficinasTest {
         assertNull(gestionOficinas.getById(2));
     }
 
+    /**
+     * Testeamos el método replace de la clase GestionOficinas.
+     */
     @Test
     void testReplaceOficina() {
         Oficina oficina = new Oficina(1, "Madrid", "Calle Mayor", "123456789");
@@ -36,6 +48,9 @@ public class GestionOficinasTest {
         assertEquals("Barcelona", gestionOficinas.getById(1).getCiudad());
     }
 
+    /**
+     * Testeamos el método remove de la clase GestionOficinas.
+     */
     @Test
     void testRemoveOficina() {
         Oficina oficina = new Oficina(1, "Madrid", "Calle Mayor", "123456789");
@@ -44,6 +59,9 @@ public class GestionOficinasTest {
         assertFalse(gestionOficinas.remove(oficina)); // Ya no existe
     }
 
+    /**
+     * Testeamos el método removeById de la clase GestionOficinas.
+     */
     @Test
     void testRemoveById() {
         Oficina oficina = new Oficina(1, "Madrid", "Calle Mayor", "123456789");

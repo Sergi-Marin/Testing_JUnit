@@ -6,6 +6,9 @@ import org.junit.jupiter.api.*;
 
 public class OficinaTest {
 
+    /**
+     * Testeamos el constructor de la clase Oficina.
+     */
     @Test
     void testConstructorValoresValidos() {
         Oficina oficina = new Oficina(1, "Madrid", "Calle Mayor", "123456789");
@@ -15,24 +18,36 @@ public class OficinaTest {
         assertEquals("123456789", oficina.getTelefono());
     }
 
+    /**
+     * Testeamos el constructor de la clase Oficina con valores inválidos.
+     */
     @Test
     void testConstructorIdNegativo() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> new Oficina(-1, "Madrid", "Calle Mayor", "123456789"));
         assertEquals("El ID no puede ser negativo.", exception.getMessage());
     }
 
+    /**
+     * Testeamos el constructor de la clase Oficina con valores inválidos.
+     */
     @Test
     void testConstructorCiudadNula() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> new Oficina(1, null, "Calle Mayor", "123456789"));
         assertEquals("La ciudad no puede ser nula o vacía.", exception.getMessage());
     }
 
+    /**
+     * Testeamos el constructor de la clase Oficina con valores inválidos.
+     */
     @Test
     void testConstructorDireccionVacia() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> new Oficina(1, "Madrid", "", "123456789"));
         assertEquals("La dirección no puede ser nula o vacía.", exception.getMessage());
     }
 
+    /**
+     * Testeamos el constructor de la clase Oficina con valores inválidos.
+     */
     @Test
     void testConstructorTelefonoNulo() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> new Oficina(1, "Madrid", "Calle Mayor", null));
