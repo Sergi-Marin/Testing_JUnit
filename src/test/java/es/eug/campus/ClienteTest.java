@@ -1,10 +1,13 @@
 package es.eug.campus;
 
-import org.testng.annotations.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ClienteTest {
+import org.junit.jupiter.api.*;
 
+public class ClienteTest {
+    /**
+     * Testeamos el constructor de la clase Cliente.
+     */
     @Test
     public void testConstructor() {
         Cliente cliente = new Cliente(1, "Juan", "123456789", "12345678A");
@@ -14,6 +17,9 @@ public class ClienteTest {
         assertEquals("12345678A", cliente.getDni());
     }
 
+    /**
+     * Testeamos el constructor de la clase Cliente con valores inválidos.
+     */
     @Test
     public void testSettersAndGetters() {
         Cliente cliente = new Cliente(1, "Juan", "123456789", "12345678A");
