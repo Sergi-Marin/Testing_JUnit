@@ -6,21 +6,28 @@ public class Cliente {
     private String telefono;
     private String dni;
 
-    // Constructor
     public Cliente(int id, String nombre, String telefono, String dni) {
+        if (id < 0) {
+            throw new IllegalArgumentException("El ID no puede ser negativo");
+        }
+        if (nombre == null || nombre.isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede ser nulo o vacío");
+        }
+        if (telefono == null || telefono.isEmpty()) {
+            throw new IllegalArgumentException("El teléfono no puede ser nulo o vacío");
+        }
+        if (dni == null || dni.isEmpty()) {
+            throw new IllegalArgumentException("El DNI no puede ser nulo o vacío");
+        }
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
         this.dni = dni;
     }
 
-    // Getters y Setters
+    // Getters y setters
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNombre() {
@@ -45,22 +52,5 @@ public class Cliente {
 
     public void setDni(String dni) {
         this.dni = dni;
-    }
-
-    // Métodos para persistir, actualizar y eliminar el cliente
-    boolean persist () {
-        return EntityManager.Persist(this);
-    }
-
-    boolean merge () {
-        return EntityManager.Merge(this);
-    }
-
-    boolean remove () {
-        return EntityManager.Remove(this);
-    }
-
-    static Cliente[] find (Cliente cliente) {
-        return EntityManager.Find(cliente);
     }
 }

@@ -2,25 +2,40 @@ package es.eug.campus;
 
 public class Oficina {
     private int id;
-    private String ciudad;
     private String direccion;
+    private String ciudad;
     private String telefono;
 
-    public Oficina(int id, String ciudad, String direccion, String telefono) {
+    public Oficina(int id, String direccion, String ciudad, String telefono) {
+        if (id < 0) {
+            throw new IllegalArgumentException("El ID no puede ser negativo");
+        }
+        if (direccion == null || direccion.isEmpty()) {
+            throw new IllegalArgumentException("La dirección no puede ser nula o vacía");
+        }
+        if (ciudad == null || ciudad.isEmpty()) {
+            throw new IllegalArgumentException("La ciudad no puede ser nula o vacía");
+        }
+        if (telefono == null || telefono.isEmpty()) {
+            throw new IllegalArgumentException("El teléfono no puede ser nulo o vacío");
+        }
         this.id = id;
-        this.ciudad = ciudad;
         this.direccion = direccion;
+        this.ciudad = ciudad;
         this.telefono = telefono;
     }
 
-    public Oficina() {}
-
+    // Getters y setters
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public String getCiudad() {
@@ -31,36 +46,11 @@ public class Oficina {
         this.ciudad = ciudad;
     }
 
-    public String getDireccion() {
-        return direccion;
-    }
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
     public String getTelefono() {
         return telefono;
     }
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
-
-    // Métodos para persistir, actualizar y eliminar la oficina
-
-    boolean persist () {
-        return EntityManager.Persist(this);
-    }
-
-    boolean merge () {
-        return EntityManager.Merge(this);
-    }
-
-    boolean remove () {
-        return EntityManager.Remove(this);
-    }
-
-    Oficina[] find () {
-        return EntityManager.Find(this);
     }
 }

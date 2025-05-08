@@ -1,51 +1,40 @@
 package es.eug.campus;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GestionOficinas {
-    private final List<Oficina> oficinas;
+    private Map<Integer, Oficina> oficinas;
 
     public GestionOficinas() {
-        oficinas = new ArrayList<>();
-    }
-
-    public Oficina get(int posicion) {
-        if (posicion < 0 || posicion >= oficinas.size()) {
-            return null;
-        }
-        return oficinas.get(posicion);
-    }
-
-    public Oficina getById(int id) {
-        return oficinas.stream()
-                .filter(oficina -> oficina.getId() == id)
-                .findFirst()
-                .orElse(null);
+        this.oficinas = new HashMap<>();
     }
 
     public boolean add(Oficina oficina) {
-        if (getById(oficina.getId()) != null) {
-            return false;
+        if (oficinas.containsKey(oficina.getId())) {
+            return false; // No se puede añadir una oficina con un ID duplicado
         }
-        return oficinas.add(oficina);
+        oficinas.put(oficina.getId(), oficina);
+        return true;
     }
 
-    public boolean replace(Oficina oficina) {
-        for (int i = 0; i < oficinas.size(); i++) {
-            if (oficinas.get(i).getId() == oficina.getId()) {
-                oficinas.set(i, oficina);
-                return true;
-            }
+    public Oficina getById(int id) {
+        return oficinas.get(id);
+    }
+
+    public boolean replace(Oficina nuevaOficina) {
+        if (!oficinas.containsKey(nuevaOficina.getId())) {
+            return false; // No se puede reemplazar si no existe la oficina
         }
-        return false;
+        oficinas.put(nuevaOficina.getId(), nuevaOficina);
+        return true;
     }
 
     public boolean remove(Oficina oficina) {
-        return oficinas.remove(oficina);
+        return oficinas.remove(oficina.getId(), oficina);
     }
 
     public boolean remove(int id) {
-        return oficinas.removeIf(oficina -> oficina.getId() == id);
+        return oficinas.remove(id) != null;
     }
 }
