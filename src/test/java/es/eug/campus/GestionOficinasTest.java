@@ -7,11 +7,17 @@ import org.junit.jupiter.api.*;
 public class GestionOficinasTest {
     private GestionOficinas gestionOficinas;
 
+    /**
+     * Testeamos la clase GestionOficinas.
+     */
     @BeforeEach
     void setup() {
         gestionOficinas = new GestionOficinas();
     }
 
+    /**
+     * Testeamos la función add de la clase GestionOficinas.
+     */
     @Test
     void testAddOficina() {
         Oficina oficina = new Oficina(1, "Calle Mayor", "Madrid", "123456789");
@@ -19,6 +25,9 @@ public class GestionOficinasTest {
         assertFalse(gestionOficinas.add(oficina)); // No se puede añadir duplicada
     }
 
+    /**
+     * Testeamos la función getById de la clase GestionOficinas.
+     */
     @Test
     void testGetById() {
         Oficina oficina = new Oficina(1, "Calle Mayor", "Madrid", "123456789");
@@ -27,6 +36,9 @@ public class GestionOficinasTest {
         assertNull(gestionOficinas.getById(2));
     }
 
+    /**
+     * Testeamos la función replace de la clase GestionOficinas.
+     */
     @Test
     void testReplaceOficina() {
         Oficina oficina = new Oficina(1, "Calle Mayor", "Madrid", "123456789");
@@ -36,19 +48,25 @@ public class GestionOficinasTest {
         assertEquals("Barcelona", gestionOficinas.getById(1).getCiudad());
     }
 
+    /**
+     * Testeamos la función remove de la clase GestionOficinas.
+     */
     @Test
     void testRemoveOficina() {
         Oficina oficina = new Oficina(1, "Calle Mayor", "Madrid", "123456789");
         gestionOficinas.add(oficina);
         assertTrue(gestionOficinas.remove(oficina));
-        assertFalse(gestionOficinas.remove(oficina)); // Ya no existe
+        assertFalse(gestionOficinas.remove(oficina));
     }
 
+    /**
+     * Testeamos la función removeById de la clase GestionOficinas.
+     */
     @Test
     void testRemoveById() {
         Oficina oficina = new Oficina(1, "Calle Mayor", "Madrid", "123456789");
         gestionOficinas.add(oficina);
         assertTrue(gestionOficinas.remove(1));
-        assertFalse(gestionOficinas.remove(1)); // Ya no existe
+        assertFalse(gestionOficinas.remove(1));
     }
 }
