@@ -45,5 +45,6 @@ public class GestionClientesTest {
         Cliente encontrado = gestion.buscarClientePorId(1);
         assertNotNull(encontrado);
         assertEquals(cliente, encontrado);
+        
     }
 }
