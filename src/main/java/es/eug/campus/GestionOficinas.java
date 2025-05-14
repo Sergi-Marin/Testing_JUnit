@@ -3,6 +3,9 @@ package es.eug.campus;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Clase que gestiona la lista de oficinas.
+ */
 public class GestionOficinas {
     private final Map<Integer, Oficina> oficinas;
 

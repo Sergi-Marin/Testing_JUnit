@@ -1,6 +1,9 @@
 package es.eug.campus;
 import java.util.Scanner;
 
+/**
+ * Clase principal que gestiona la aplicación de gestión de vehículos.
+ */
 public class Main {
     public static void main(String[] args) {
         EntityManager bbdd = new EntityManager();

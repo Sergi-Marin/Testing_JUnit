@@ -1,5 +1,8 @@
 package es.eug.campus;
 
+/**
+ * Clase que representa un cliente.
+ */
 public class Oficina {
     private int id;
     private String direccion;

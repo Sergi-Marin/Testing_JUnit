@@ -3,6 +3,9 @@ package es.eug.campus;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que gestiona la lista de clientes.
+ */
 public class GestionVehiculos {
     private final List<Vehiculo> vehiculos;
 

@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * Clase que gestiona la conexión a la base de datos y las operaciones CRUD para las entidades Vehiculo, Cliente y Oficina.
+ */
 public class EntityManager {
     private static Connection conn;
 
