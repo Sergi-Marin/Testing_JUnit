@@ -16,7 +16,9 @@ public class EntityManager {
     public boolean init() {
         try {
             Properties p = loadPropertiesFile();
-            if (p == null) return false;
+            if (p == null) {
+                return false;
+            }
 
             String strConn = (String) p.get("db.string_connection");
             System.out.println(strConn);

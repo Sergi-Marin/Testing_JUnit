@@ -3,7 +3,7 @@ package es.eug.campus;
 /**
  * Clase que representa un cliente.
  */
-public class Cliente {
+public final class Cliente {
     private int id;
     private String nombre;
     private String telefono;
